@@ -240,6 +240,16 @@
                         </button>
                     </div>
 
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Passport Number</label>
+                        <input class="form-control" id="passport-number" placeholder="Enter Passport Number" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Surname</label>
+                        <input class="form-control" id="surname" placeholder="Enter Surname" />
+                    </div>
+
                 </div>
             </div>
         </div>
