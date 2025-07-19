@@ -43,6 +43,14 @@
                         <input type="text" class="form-control" name="contact" placeholder="Contact" />
                     </div>
                     <div class="col-4 mt-4">
+                        <label class="text-dark ">DOB</label>
+                        <input type="date" class="form-control" name="dob"  />
+                    </div>
+                    <div class="col-4 mt-4">
+                        <label class="text-dark ">Passport Number</label>
+                        <input type="text" class="form-control" name="ppn" placeholder="Passport"  />
+                    </div>
+                    <div class="col-4 mt-4">
                         <label class="text-dark ">University</label>
                         <select class="form-control" name="university" id="university" required>
                             <option>Select</option>
