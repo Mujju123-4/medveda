@@ -41,15 +41,20 @@
     <div class="side-app">
         <div class="card p-4">
             <h1 class="details-header">Students Details</h1>
-            <div class="row mb-3 pt-2 pb-2 tab-div">
+            <div class="row mb-3 pt-2 pb-2 tab-div flex-nowrap overflow-auto" style="white-space: nowrap;">
                 <div class="tab-button active" data-tab="basic">Basic Details</div>
                 <div class="tab-button" data-tab="courses">Courses</div>
                 <div class="tab-button" data-tab="documents">Documents</div>
+                <div class="tab-button" data-tab="translataion">Translataion</div>
+                <div class="tab-button" data-tab="acceptence">Acceptence</div>
+                <div class="tab-button" data-tab="eqe">EQE</div>
+                <div class="tab-button" data-tab="ministerorder">Minister Order</div>
+                <div class="tab-button" data-tab="other">Others</div>
             </div>
 
 
-            {{-- Basic --}}
 
+            {{-- Basic --}}
             <div id="basic" class="tab-content active container">
                 <div class="row">
                     <div class="col-4 mt-4">
@@ -193,7 +198,6 @@
                 </div>
             </form>
 
-
             {{-- Documents --}}
             <div id="documents" class="tab-content">
                 <div class="row">
@@ -246,12 +250,185 @@
                     </div>
 
                     <div class="col-3 mt-4">
-                        <label class="text-dark ">Surname</label>
-                        <input class="form-control" id="surname" placeholder="Enter Surname" />
+                        <label class="text-dark ">Surname (English)</label>
+                        <input class="form-control" id="surname-english" placeholder="Enter Surname" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Surname (Georgia)</label>
+                        <input class="form-control" id="surname-georgia" placeholder="Enter Surname" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Name (English)</label>
+                        <input class="form-control" id="name-english" placeholder="Enter Name" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Name (Georgia)</label>
+                        <input class="form-control" id="name-georgia" placeholder="Enter Name" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Nationality (English)</label>
+                        <input class="form-control" id="nationality-english" placeholder="Enter Nationality" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Nationality (Georgia)</label>
+                        <input class="form-control" id="nationality-georgia" placeholder="Enter Nationality" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Sex</label>
+                        <input class="form-control" id="sex" placeholder="Enter Sex" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">DOB</label>
+                        <input type="date" class="form-control" id="dob" placeholder="Enter DOB"
+                            onchange="calculateAge()" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Place of Birth</label>
+                        <input class="form-control" id="birth_place" placeholder="Enter" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Date of Issue</label>
+                        <input type="date" class="form-control" id="issue_date" placeholder="Enter" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Expiry Date</label>
+                        <input type="date" class="form-control" id="expiry_date" placeholder="Enter" />
+                    </div>
+
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter" />
+                    </div>
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Spouse Name</label>
+                        <input type="text" class="form-control" id="spouse_name" placeholder="Enter" />
+                    </div>
+                    <div class="col-3 mt-4">
+                        <label class="text-dark ">Mother Name</label>
+                        <input type="text" class="form-control" id="Mother_name" placeholder="Enter" />
+                    </div>
+                    <div class="col-12 mt-4">
+                        <label class=""><strong>Parents Passport</strong></label>
+                    </div>
+                    <div class="col-3">
+                        <label class="text-dark ">Passport</label>
+                        <select class="form-control" id="parent-passport-select">
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div id="parent-passport-div" class="col-3 d-none">
+                        <input type="file" name="qualification_document" id="document" style="display: none;">
+                        <button id="upload-button" type="button" class="btn btn-primary"
+                            style="margin-top: 27px;width: 100px;" onclick="$('#document').click();">
+                            <i class="fa fa-upload"></i> Upload
+                        </button>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="text-dark ">Student Birth Certificate</label>
+                        <select class="form-control" id="birth-certificate-select">
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div id="student-certificate-div" class="col-3 d-none">
+                        <input type="file" name="qualification_document" id="document" style="display: none;">
+                        <button id="upload-button" type="button" class="btn btn-primary"
+                            style="margin-top: 27px;width: 100px;" onclick="$('#document').click();">
+                            <i class="fa fa-upload"></i> Upload
+                        </button>
+                    </div>
+
+
+                    <div class="col-3">
+                        <label class="text-dark ">Affidavit</label>
+                        <select class="form-control" id="affidavit-select">
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div id="affidavit-div" class="col-3 d-none">
+                        <input type="file" id="document" style="display: none;">
+                        <button id="upload-button" type="button" class="btn btn-primary"
+                            style="margin-top: 27px;width: 100px;" onclick="$('#document').click();">
+                            <i class="fa fa-upload"></i> Upload
+                        </button>
+                    </div>
+
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary" style="margin-top: 27px;width: 162px;">
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i> Proceed to Approve
+                        </button>
                     </div>
 
                 </div>
             </div>
+
+            {{-- Translataion --}}
+            <div id="translataion" class="tab-content">
+                <div class="row">
+                    <div class="col-3">
+                        <label class="text-dark ">Translataion Requested</label>
+                        <select class="form-control" id="translation-select">
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label class="text-dark ">Number of Copies</label>
+                        <input type="number" class="form-control" id="number-copies" placeholder="Enter" />
+                    </div>
+
+                    <div class="flex items-center space-x-6 col-3" style="text-align: center;top: 35px;">
+                        <!-- Received -->
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="status" value="received"
+                                class="appearance-none w-4 h-4 border border-gray-400 rounded-full checked:bg-emerald-500 checked:ring-2 checked:ring-emerald-500 checked:ring-offset-2 focus:outline-none">
+                            <span class="ml-2">Received</span>
+                        </label>
+
+                        <!-- Not Received -->
+                        <label class="flex items-center cursor-pointer">
+                            <input type="radio" name="status" value="not-received"
+                                class="appearance-none w-4 h-4 border border-gray-400 rounded-full checked:bg-emerald-500 checked:ring-2 checked:ring-emerald-500 checked:ring-offset-2 focus:outline-none">
+                            <span class="ml-2">Not Received</span>
+                        </label>
+                    </div>
+
+                    <div id="translated-div" class="col-3 d-none">
+                        <input type="file" name="" id="document" style="display: none;">
+                        <button id="upload-button" type="button" class="btn btn-primary"
+                            style="margin-top: 27px;width: 100px;" onclick="$('#document').click();">
+                            <i class="fa fa-upload"></i> Upload
+                        </button>
+                    </div>
+
+                    <div class="d-flex p-2 col-12" style="justify-content: end;">
+                        <button onclick="" class="submit-button">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+
+            {{-- Acceptence Letter  --}}
         </div>
 
     </div>
@@ -439,6 +616,69 @@
                 $('#passport-div').removeClass('d-none');
             } else {
                 $('#passport-div').addClass('d-none');
+            }
+        });
+    </script>
+
+    {{-- Age Calculating Script --}}
+    <script>
+        function calculateAge() {
+            const dob = document.getElementById('dob').value;
+            if (dob) {
+                const dobDate = new Date(dob);
+                const today = new Date();
+                let age = today.getFullYear() - dobDate.getFullYear();
+                const m = today.getMonth() - dobDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) {
+                    age--;
+                }
+                document.getElementById('showAge').innerText = age + ' Years';
+            } else {
+                document.getElementById('showAge').innerText = '-';
+            }
+        }
+
+        // Parent Passport Select
+        $('#parent-passport-select').on('change', function() {
+            const selectedValue = $(this).val();
+            if (selectedValue === "Yes") {
+                $('#parent-passport-div').removeClass('d-none');
+            } else {
+                $('#parent-passport-div').addClass('d-none');
+            }
+        });
+
+        // Birth Certificate Select
+        $('#birth-certificate-select').on('change', function() {
+            const selectedValue = $(this).val();
+            if (selectedValue === "Yes") {
+                $('#student-certificate-div').removeClass('d-none');
+            } else {
+                $('#student-certificate-div').addClass('d-none');
+            }
+        });
+
+        // Affidavit Select
+        $('#affidavit-select').on('change', function() {
+            const selectedValue = $(this).val();
+            if (selectedValue === "Yes") {
+                $('#affidavit-div').removeClass('d-none');
+            } else {
+                $('#affidavit-div').addClass('d-none');
+            }
+        });
+    </script>
+
+    {{-- Translated Script --}}
+    <script>
+        $('input[name="status"]').on('change', function() {
+            const selectedValue = $('input[name="status"]:checked').val();
+            console.log(selectedValue);
+
+            if (selectedValue === "received") {
+                $('#translated-div').removeClass('d-none');
+            } else {
+                $('#translated-div').addClass('d-none');
             }
         });
     </script>
